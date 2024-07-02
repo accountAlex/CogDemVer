@@ -2,7 +2,7 @@ package com.cognitive.cogdemver.controllers;
 
 import com.cognitive.cogdemver.models.dto.LoginDto;
 import com.cognitive.cogdemver.models.dto.RegistrationDTO;
-import com.cognitive.cogdemver.entities.User;
+import com.cognitive.cogdemver.models.User;
 import com.cognitive.cogdemver.services.UserService;
 import com.cognitive.cogdemver.services.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;

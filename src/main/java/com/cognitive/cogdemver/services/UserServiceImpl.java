@@ -2,7 +2,7 @@ package com.cognitive.cogdemver.services;
 
 import com.cognitive.cogdemver.entities.Role;
 import com.cognitive.cogdemver.models.dto.RegistrationDTO;
-import com.cognitive.cogdemver.entities.User;
+import com.cognitive.cogdemver.models.User;
 import com.cognitive.cogdemver.repositories.UserRepository;
 import com.cognitive.cogdemver.utils.ServiceUtil;
 import jakarta.persistence.EntityNotFoundException;

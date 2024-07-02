@@ -1,6 +1,6 @@
 package com.cognitive.cogdemver.services;
 
-import com.cognitive.cogdemver.entities.User;
+import com.cognitive.cogdemver.models.User;
 import com.cognitive.cogdemver.models.dto.RegistrationDTO;
 
 import java.util.Optional;

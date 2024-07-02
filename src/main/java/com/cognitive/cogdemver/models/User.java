@@ -1,4 +1,4 @@
-package com.cognitive.cogdemver.entities;
+package com.cognitive.cogdemver.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

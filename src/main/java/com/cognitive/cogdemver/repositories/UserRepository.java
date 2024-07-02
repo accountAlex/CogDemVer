@@ -1,6 +1,6 @@
 package com.cognitive.cogdemver.repositories;
 
-import com.cognitive.cogdemver.entities.User;
+import com.cognitive.cogdemver.models.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
