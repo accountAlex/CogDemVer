@@ -4,7 +4,7 @@ import { AuthContext } from '../context/AuthContext';
 import { Navbar, Nav, NavDropdown, Container, Form, Button, Dropdown } from 'react-bootstrap';
 import { FaUserCircle } from 'react-icons/fa';
 
-const NavBar = () => {
+const NavBar = ({ toggleTheme, isDarkTheme }) => {
     const { user, logout, login } = useContext(AuthContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -22,12 +22,20 @@ const NavBar = () => {
     };
 
     return (
-        <Navbar bg="dark" variant="dark" expand="lg" fixed="top" className="justify-content-between">
+        <Navbar bg={isDarkTheme ? "dark" : "light"} variant={isDarkTheme ? "dark" : "light"} expand="lg" fixed="top" className="justify-content-between">
             <Container fluid>
-                <Navbar.Brand as={Link} to="/">Cognitive Нахуй</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">Cognitive нахуй</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto">
+                        <Form.Check
+                            type="switch"
+                            id="custom-switch"
+                            label="Dark Theme"
+                            checked={isDarkTheme}
+                            onChange={toggleTheme}
+                            className="mr-3"
+                        />
                         {user ? (
                             <NavDropdown title={<FaUserCircle size={24} />} id="basic-nav-dropdown" alignRight>
                                 <NavDropdown.Item as={Link} to="/profile">Profile</NavDropdown.Item>
