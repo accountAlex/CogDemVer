@@ -1,8 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client'; // Убедитесь, что ReactDOM импортирован правильно
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import { AuthProvider } from './context/AuthContext';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-import authService from '../api/auth'; // Добавляем этот импорт
+import authService from '../api/auth';
+import { Form, Button, Container, Alert } from 'react-bootstrap';
 
 const RegisterForm = () => {
     const [username, setUsername] = useState('');
@@ -19,8 +20,8 @@ const RegisterForm = () => {
         setLoading(true);
 
         try {
-            await authService.register(username, email, password); // Используем authService для регистрации
-            await login(username, password); // Логиним пользователя сразу после регистрации
+            await authService.register(username, email, password);
+            await login(username, password);
             setLoading(false);
             navigate('/');
         } catch (error) {
@@ -36,55 +37,46 @@ const RegisterForm = () => {
     };
 
     return (
-        <div>
+        <Container>
             <h1>Register Page</h1>
-            <form onSubmit={handleRegister}>
-                <div>
-                    <label htmlFor="username">Username</label>
-                    <input
+            <Form onSubmit={handleRegister}>
+                <Form.Group controlId="username">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control
                         type="text"
-                        id="username"
-                        name="username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
                     />
-                </div>
-                <div>
-                    <label htmlFor="email">Email</label>
-                    <input
+                </Form.Group>
+                <Form.Group controlId="email">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
                         type="email"
-                        id="email"
-                        name="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
-                </div>
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input
+                </Form.Group>
+                <Form.Group controlId="password">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
                         type="password"
-                        id="password"
-                        name="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                </div>
-                <div>
-                    <button type="submit" disabled={loading}>
-                        {loading && <span>Loading...</span>}
-                        <span>Register</span>
-                    </button>
-                </div>
+                </Form.Group>
+                <Button variant="primary" type="submit" disabled={loading}>
+                    {loading ? 'Loading...' : 'Register'}
+                </Button>
                 {message && (
-                    <div>
-                        <div>{message}</div>
-                    </div>
+                    <Alert variant="danger" className="mt-3">
+                        {message}
+                    </Alert>
                 )}
-            </form>
-        </div>
+            </Form>
+        </Container>
     );
 };
 

@@ -29,7 +29,7 @@ public class WebSecurityConfig {
         http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**", "/api/csrf-token").permitAll()
+                        .requestMatchers("/api/auth/**", "/api/csrf-token").permitAll() //ебейшая хуйея этот ваш спринг сосурити
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form

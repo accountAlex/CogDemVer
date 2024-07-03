@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
+import { Form, Button, Container, Alert } from 'react-bootstrap';
 
 const LoginForm = () => {
     const [username, setUsername] = useState('');
@@ -34,44 +35,37 @@ const LoginForm = () => {
     };
 
     return (
-        <div>
+        <Container>
             <h1>Login Page</h1>
-            <form onSubmit={handleLogin}>
-                <div>
-                    <label htmlFor="username">Username</label>
-                    <input
+            <Form onSubmit={handleLogin}>
+                <Form.Group controlId="username">
+                    <Form.Label>Username</Form.Label>
+                    <Form.Control
                         type="text"
-                        id="username"
-                        name="username"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         required
                     />
-                </div>
-                <div>
-                    <label htmlFor="password">Password</label>
-                    <input
+                </Form.Group>
+                <Form.Group controlId="password">
+                    <Form.Label>Password</Form.Label>
+                    <Form.Control
                         type="password"
-                        id="password"
-                        name="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         required
                     />
-                </div>
-                <div>
-                    <button type="submit" disabled={loading}>
-                        {loading && <span>Loading...</span>}
-                        <span>Login</span>
-                    </button>
-                </div>
+                </Form.Group>
+                <Button variant="primary" type="submit" disabled={loading}>
+                    {loading ? 'Loading...' : 'Login'}
+                </Button>
                 {message && (
-                    <div>
-                        <div>{message}</div>
-                    </div>
+                    <Alert variant="danger" className="mt-3">
+                        {message}
+                    </Alert>
                 )}
-            </form>
-        </div>
+            </Form>
+        </Container>
     );
 };
 
