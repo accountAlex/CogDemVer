@@ -11,7 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/auth") //короче это контроллер для авторизации, я бы пока его не трогад, вроде номально работает, причем через PostMapping
+@RequestMapping("/api/auth") //короче это контроллер для авторизации, я бы пока его не трогал, вроде номально работает, причем через PostMapping
 public class AuthController {
     private final UserService userService;
     private final AuthenticationService authenticationService;
